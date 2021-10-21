@@ -1,24 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using NUnit.Framework;
+using UnityEngine;
 using UnityEngine.TestTools;
 
-public class TestSuite : MonoBehaviour
+namespace Tests
 {
-    public float result = 0.0f;
-    [Test]
-    public void TestAddition()
+    public class TestSuite
     {
-        result = Calculator.CalculatePair(5, 2, "+");
-        Assert.Equals(result, 7);
-    }
-    [UnityTest]
-    public IEnumerator TestUnityAddition()
-    {
-        yield return null;
-        result = Calculator.CalculatePair(5, 2, "+");
-        Assert.Equals(result, 7);
-    }
+        private float result= 0.0f;
+        [Test]
+        public void TestAddition()
+        {
+            result = Calculator.CalculatePair(5, 2, "+");
+            Assert.AreEqual(result, 7);
+        }
 
+        // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
+        // `yield return null;` to skip a frame.
+        [UnityTest]
+        public IEnumerator TestUnityAddition()
+        {
+            // Use the Assert class to test conditions.
+            // Use yield to skip a frame.
+            yield return null;
+            result = Calculator.CalculatePair(5, 2, "+");
+            Assert.AreEqual(result, 7);
+        }
+    }
 }
