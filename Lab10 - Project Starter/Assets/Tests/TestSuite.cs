@@ -16,6 +16,27 @@ namespace Tests
             Assert.AreEqual(result, 7);
         }
 
+        [Test]
+        public void TestSubtraction()
+        {
+            result = Calculator.CalculatePair(5, 2, "-");
+            Assert.AreEqual(result, 3);
+        }
+
+        [Test]
+        public void TestMultiplication()
+        {
+            result = Calculator.CalculatePair(5, 2, "*");
+            Assert.AreEqual(result, 10);
+        }
+
+        [Test]
+        public void TestDivision()
+        {
+            result = Calculator.CalculatePair(5, 5, "/");
+            Assert.AreEqual(result, 1);
+        }
+
         // A UnityTest behaves like a coroutine in Play Mode. In Edit Mode you can use
         // `yield return null;` to skip a frame.
         [UnityTest]
